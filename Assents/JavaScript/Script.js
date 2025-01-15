@@ -1,4 +1,94 @@
 
+
+ document.querySelector('.inserir').addEventListener('click', async ()=>{
+ let response = await fetch('https://jsonplaceholder.typicode.com/todos',
+   {
+     method: 'POST',
+     headers: {
+       'Content-Type':'application/json'
+     },
+     body: JSON.stringify({
+       title:'new title',
+       userId:'2',
+     
+
+     }) 
+   }
+  )
+  let json = await response.json();
+  console.log(json)
+ }
+)
+
+
+
+
+
+/* --------------------- REQUISIÇOES ---------------------------
+
+//METODO POST ------------------------
+//FORMA MELHOR USANDO ASYNC E AWAIT --
+
+ document.querySelector('.inserir').addEventListener('click', async ()=>{
+ let response = await fetch('https://jsonplaceholder.typicode.com/todos',
+   {
+     method: 'POST',
+     headers: {
+       'Content-Type':'application/json'
+     },
+     body: JSON.stringify({
+       title:'new title',
+       userId:'2',
+     
+
+     }) 
+   }
+  )
+  let json = await response.json();
+  console.log(json)
+ }
+)
+ 
+//FORMA MENOS USADA -- 
+
+ document.querySelector('.inserir').addEventListener('click', ()=>{
+   fetch('https://jsonplaceholder.typicode.com/todos',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify({
+        title:'new title',
+        userId:'2',
+      
+
+      }) 
+    }
+   )
+   .then((response) => {
+    return response.json();
+   })
+   .then((json)=>{
+    console.log(json)
+   })
+   .catch((error)=>{
+    console.log(error)
+   })
+
+  }
+ )
+
+// METODO GET ------------------------
+//FORMA MELHOR USANDO ASYNC E AWAIT --
+
+  document.querySelector('.inserir').addEventListener('click', async () => {
+   let response = await fetch('https://jsonplaceholder.typicode.com/todos')
+   let json = await response.json()
+   alert(`titulo do first post ${json[0].title}`);
+
+  }
+//FORMA MENOS USADA -- 
 document.querySelector('.botao').addEventListener('click', () => {
    fetch('https://jsonplaceholder.typicode.com/tdos')
     .then((response) => {
@@ -12,20 +102,10 @@ document.querySelector('.botao').addEventListener('click', () => {
     .catch((error)=> {
       alert(error)
     })
-    
- 
-  
 })
+ 
+*/
 
-
-
-
-
-/* --------------------- REQUISIÇOES ---------------------------
-
-
-
-/*
 
 /* --------------------------------- LOGICA DE PROGRAMAÇÃO NA PRATICA --------------------------------
 /*------------------------Anotaçoes Livro --------------------------------
