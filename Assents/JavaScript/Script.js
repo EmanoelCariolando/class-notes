@@ -1,6 +1,31 @@
 
+document.querySelector('.botao').addEventListener('click', () => {
+   fetch('https://jsonplaceholder.typicode.com/tdos')
+    .then((response) => {
+      return response.json();
+    })
+
+    .then((data) => { 
+        alert(`${data[0].title}`)
+    })
+
+    .catch((error)=> {
+      alert(error)
+    })
+    
+ 
+  
+})
 
 
+
+
+
+/* --------------------- REQUISIÇOES ---------------------------
+
+
+
+/*
 
 /* --------------------------------- LOGICA DE PROGRAMAÇÃO NA PRATICA --------------------------------
 /*------------------------Anotaçoes Livro --------------------------------
