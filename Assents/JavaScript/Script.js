@@ -1,30 +1,148 @@
+let array = ['item1','item2','item3','item4',]
 
 
- document.querySelector('.inserir').addEventListener('click', async ()=>{
- let response = await fetch('https://jsonplaceholder.typicode.com/todos',
-   {
-     method: 'POST',
-     headers: {
-       'Content-Type':'application/json'
-     },
-     body: JSON.stringify({
-       title:'new title',
-       userId:'2',
-     
-
-     }) 
-   }
-  )
-  let json = await response.json();
-  console.log(json)
- }
-)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------------- Metodos De String ---------------------
+  let nome = 'Manel Do Capa'
+  let newName = nome.replace('Capa','Caps')
+  console.log(newName)
+
+*/
+/*---------------- Metodos De Numbers ---------------------
+ //---------- Parse Int
+ let x = '2'
+ let newNumber = parseInt(x) + 4;
+ console.log(newNumber)
+
+ //---------- Parse Float
+ let x = 29.9
+ let newNumber = parseFloat(x); // Ele Valoriza os Number Decimais
+ console.log(newNumber)
+
+*/
+/*---------------- Metodos De Array ---------------------
+ //----------indexOf                                                           Busca A Posiçao do item
+ let list = ['item1','item2','item3']
+ let res = list.indexOf('item1')
+
+ console.log(res)
+
+  //----------Splice                                                           Remove um item no Array      
+   let list = ['item1','item2','item3']
+   let res = list.splice(1,1)
+
+   console.log(list)
+
+
+
+  //---------- sort()                                                           Ordena em ordem alfabetica
+    let list = ['atem1','ctem2','btem3']
+    let res = list.sort()
+
+    console.log(list)
+
+*/
 
 
 
 /* --------------------- REQUISIÇOES ---------------------------
+// PROJETO ----
+    async function readPost() {
+    let postArea = document.querySelector('.post')
+    postArea.innerHTML = `Carregando....`
+
+    let response = await fetch('https://jsonplaceholder.typicode.com/todos')
+    let json = await response.json();
+
+  
+    if(json.length) {
+      postArea.innerHTML = ''
+      
+       for(let i in json){
+       let postHtml = `<div><h1>${json[i].title}</h1> <hr>${json[i].id}</hr></div>`  
+       postArea.innerHTML += postHtml;
+    }
+    } else {
+      postArea.innerHTML = `Nothing Post To See`
+    }
+  }
+    readPost()
+
+
+
+    async function addNewPost(title,text){
+      await fetch(
+        'https://jsonplaceholder.typicode.com/todos',
+        {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'
+
+          },
+          body: JSON.stringify({
+            title,
+            text,
+            userId: 2
+
+          })
+        }
+      )
+     document.querySelector('.input').value = '';
+     document.querySelector('textarea').value = '';
+
+      readPost()
+    }
+
+    document.querySelector('.inserir').addEventListener('click', ()=>{
+      let title = document.querySelector('.input').value;
+      let text = document.querySelector('textarea').value;
+
+      if(title && text){ 
+      addNewPost(title,text)
+        
+      }else{
+        alert('Digite Algo Nos Campos!')
+      }
+      
+    }) 
 
 //METODO POST ------------------------
 //FORMA MELHOR USANDO ASYNC E AWAIT --
