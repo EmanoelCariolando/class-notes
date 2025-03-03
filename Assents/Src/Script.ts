@@ -1,4 +1,17 @@
-let array = ['item1','item2','item3','item4',]
+ let lightOff = document.querySelector('img') as HTMLImageElement;
+ let text = document.querySelector('h1') as HTMLHeadingElement
+
+  lightOff.addEventListener('click', () => {
+    console.log('clicou')
+    let srcEl = lightOff.getAttribute('src')
+    if (srcEl === 'https://arduinolivre.files.wordpress.com/2013/08/lampada_desligada.png'){
+      text.textContent = 'Lâmpada Ligada'
+      lightOff.src =  "https://arduinolivre.files.wordpress.com/2013/08/lampada_ligada.png"
+    } else {
+      text.textContent = 'Lâmpada Desligada'
+      lightOff.src =  'https://arduinolivre.files.wordpress.com/2013/08/lampada_desligada.png'
+    }
+   })
 
 
 
@@ -29,14 +42,33 @@ let array = ['item1','item2','item3','item4',]
 
 
 
+/* light ----------------------
+   let lightOff = document.querySelector('img')
+   let text = document.querySelector('h1')
+   let gif = document.querySelector('.gif')
+  
+    lightOff.addEventListener('click', () => {
+      console.log('clicou')
+      srcEl = lightOff.getAttribute('src')
+      if (srcEl === 'https://arduinolivre.files.wordpress.com/2013/08/lampada_desligada.png'){
+        text.textContent = 'Lâmpada Ligada'
+        lightOff.src =  "https://arduinolivre.files.wordpress.com/2013/08/lampada_ligada.png"
+      } else {
+        text.textContent = 'Lâmpada Desligada'
+        lightOff.src =  'https://arduinolivre.files.wordpress.com/2013/08/lampada_desligada.png'
+      }
+     })
+
+*/
+
+/*------------------ ARROW FUNCTION ----------------
+let escolhaNome = (nome) => nome.length;
+console.log(escolhaNome('Manel'))
+ 
 
 
 
-
-
-
-
-
+*/
 
 
 
